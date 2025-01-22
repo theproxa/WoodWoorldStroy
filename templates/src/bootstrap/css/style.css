@@ -1,0 +1,157 @@
+
+.custom-container-base{
+    width: 90%;
+    max-width: 1170px;
+    height: 100vh;
+    margin: 0 auto;
+
+}
+
+.custom-container-case-form {
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.custom-bg-color-base{
+    background-color: aliceblue;
+}
+
+.custom-bg-color-content{
+    background-color:aliceblue;
+}
+
+
+.custom-container-title{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.custom-container-title-1{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer {
+    position:  fixed;
+    right: 0;
+    bottom: 0;
+    text-align: center; 
+    width: 100%;   
+    font-size: 19px;
+    font-weight: bold;  
+   }
+
+   table {
+    width: 650px;
+    border-top: 7px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+  }
+  
+  td {
+    text-align: left;
+      padding: 20px;
+      border: 3px solid  black;
+  }
+   th {
+    text-align: center;
+    padding: 20px;
+      border: 3px solid  black;
+   }
+   
+
+.custom-container-photo{
+    width: 95%;
+    margin: top auto;
+}
+
+.custom-container-item-photo{
+    object-fit: contain;
+    width: 100%; 
+    height: 100%;
+}
+
+.custom-container-item{
+    width:  30%;
+    height: 30%;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    background: silver;
+    overflow: hidden;
+
+}
+
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    grid-gap: 20px; /* Space between items */
+    justify-content: end; /* Align items to the right */ /* Distribute space around items */
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 300px; /* Adjust width as needed */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents image from creating extra space below */
+    margin-bottom: 10px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    margin: 0; /* Remove default margin */
+
+}
+
+.product-type {
+    margin: 5px 0; /* Adjust spacing between name and type */
+    
+}
+
+
+
+.product-dimensions {
+   display: flex;
+   flex-direction: column;
+}
+
+
+.product-dimensions > p { /* Targets <p> tags *within* product-dimensions */
+  margin: 5px 0; /* Smaller margin between dimensions */
+
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Remove default margin */
+}
+
+main {
+    flex: 1; /* Allow main content to grow */
+}
+
+footer {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+

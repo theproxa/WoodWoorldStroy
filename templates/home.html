@@ -2,12 +2,22 @@
 
 {% block title %}Home{% endblock %}
 
+
 {% block content %}
-{% if user.is_authenticated %}
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'signup' %}">signup</a>
-{% endif %}
+
+<body>
+    <div class="custom-container-base">
+        <div class="custom-container-title-1">
+            <h1 class="display-4">Wood Woord Stroy</h1>
+        </div>
+        <div class="custom-container-photo border border-dark rounded">
+            <img src="media/img/konstrukcionnye-pilomaterialy.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="">
+            <p class="font-monospace text-start fw-weight-bold fs-4">Добро пожаловать в Wood World Stroy – мир качественной деревообработки!</p>
+            <p class="font-monospace text-start fw-weight-bold fs-4">Мы – молодая, динамично развивающаяся компания, влюбленная в дерево и всё, что с ним связано. С энтузиазмом и профессионализмом мы подходим к каждому проекту. В Wood World Stroy мы сочетаем современные технологии с традиционным мастерством, чтобы предложить вам изделия высочайшего качества, отличающиеся долговечностью и неповторимым стилем.</p>
+            <p class="font-monospace text-start fw-weight-bold fs-4">Мы ценим каждого клиента и готовы воплотить ваши самые смелые идеи в жизнь. Ознакомьтесь с нашим портфолио и убедитесь в безграничных возможностях дерева вместе с Wood World Stroy! Свяжитесь с нами, и мы с удовольствием ответим на все ваши вопросы.</p>
+        </div>
+    </div>
+</body>
 {% endblock %}

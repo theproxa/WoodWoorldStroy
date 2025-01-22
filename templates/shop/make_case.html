@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}make catalog object{% endblock %}
+
+{% block content %}
+        <div class="custom-container-base custom-bg-color-content">
+            <div class="center-block">
+                <div class = "custom-container-case-form">
+                    <div class="custom-container-title" >
+                        <p class="text-justify"><h1>Регистрация заказа</h1></p>
+                    </div>
+                
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Длинна</label><br>
+                            <input type="integer" class="form-control" name="product_len" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Толщина</label><br>
+                            <input type="integer" class="form-control" name="thickness"required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ширина</label><br>
+                            <input type="integer" class="form-control" name="width"required>
+        
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Объем заказа в кубомеьрах</label><br>
+                            <input type="integer" class="form-control" name="quantity"required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">create</button>
+                       
+                        
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+
+
+{% endblock %}

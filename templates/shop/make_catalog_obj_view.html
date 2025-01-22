@@ -3,8 +3,18 @@
 {% block title %}make catalog object{% endblock %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">create</button>
-    </form>
+    <div class="custom-container-base custom-bg-color-content">
+        <div class="center-block">
+            <div class = "custom-container-case-form">
+                <div class="custom-container-title" >
+                    <p class="text-justify"><h1>Регистрация ародукта</h1></p>
+                </div>
+                <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary" type="submit">create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}

@@ -1,2 +1,5 @@
+
 env
 *.pyc
+media/img/kind/*
+shop/migrations/*

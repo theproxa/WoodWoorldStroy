@@ -3,9 +3,25 @@
 {% block title %}blog{% endblock %}
 
 {% block content %}
-    <p><a href="{% url 'make_catalog_obj_view' %}">add catalog obj</a></p>
-    {% for object in catalog %}
-    <h4>{{catalog.name}}</h4><br>
-    {% endfor %}
+    <div class="custom-container-base">
+        <div class="product-container row-cols-3">
+            {% for catalog_obj in catalog %}
+
+                <div class="product-item col">
+                    <img src="{{catalog_obj.image.url}}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name" {% if user.is_authenticated %} href="{% url 'make_case' catalog_obj.id %}" {% endif %}>{{catalog_obj.kind}}</h3>
+                        <p class="product-type">{{catalog_obj.material}}</p>
+                        <div class="product-dimensions">
+                            <p>Длина: {{catalog_obj.product_len}}</p>
+                            <p>Ширина: {{catalog_obj.width}}</p>
+                            <p>Высота: {{catalog_obj.thickness}}</p>
+                        </div>
+                     </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
 
 {% endblock %}

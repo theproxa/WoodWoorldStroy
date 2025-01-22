@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}case list{% endblock %}
+
+{% block content %}
+
+<div class="custom-container-base">
+    <div class="custom-container-title">
+        <h1>Список заказов</h1>
+    </div>
+        <table>
+            <tr>
+                <th>
+                    <h2>Сорт</h2>
+                </th>
+                <th>
+                    <h2>Материал</h2>
+                </th>
+                <th>
+                    <h2>Номер</h2>
+                </th>
+                <th>
+                    <h2>Адрес</h2>
+                </th>
+                <th>
+                    <h2>Датa заказа</h2>
+                </th>
+                <th>
+                    <h2>Длинна</h2>
+                </th>
+                <th>
+                    <h2>Ширина</h2>
+                </th>
+                <th>
+                    <h2>Толщина</h2>
+                </th>
+                <th>
+                    <h2>Объем закупки</h2>
+                </th>
+            </tr>
+        
+        {% for case in object_list %}
+            <tr>
+                <td>
+                    <h4>{{ case.kind }}</h4>
+                </td>
+                <td>
+                    <h4>{{case.material}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.client_phone}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.client_adress}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.date}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.product_len}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.width}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.thickness}}</h4>
+                </td>
+                <td>
+                    <h4>{{case.quantity}}</h4>
+                </td>
+            </tr>
+        {% empty %}
+            <li>заказов нет</li>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if case.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    <h6>Страница {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</h6>.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    
+    </table>
+</div>
+
+{% endblock %}

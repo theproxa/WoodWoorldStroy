@@ -3,10 +3,18 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+<div class="custom-container-base custom-bg-color-content">
+  <div class="center-block">
+      <div class = "custom-container-case-form">
+          <div class="custom-container-title" >
+              <p class="text-justify"><h1>Войти</h1></p>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+  </div>
 {% endblock %}

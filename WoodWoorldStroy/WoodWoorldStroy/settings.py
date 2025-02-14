@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(*gkcjoh31+dli1tlte)mz924dr@xd*z^22re54$%y5ffk8#yv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '10.13.100.205']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'WoodWoorldStroy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME', 'mydb'),
+        'USER': os.getenv('DB_USER', 'user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': '5432',
     }
 }
 

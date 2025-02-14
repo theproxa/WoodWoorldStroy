@@ -1,5 +1,5 @@
 env
-WoodWoorldStroy/*.pyc
-WoodWoorldStroy/media/img/kind/*
-WoodWoorldStroy/shop/migrations/*
-WoodWoorldStroy/users/migrations/*
+*.pyc
+media/img/kind/*
+shop/migrations/*
+users/migrations/*

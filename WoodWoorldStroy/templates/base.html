@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'bootstrap/css/style.css' %}" type="text/css" rel="stylesheet">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Wood World Stroy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method = "post">
+                {% csrf_token %}
+                <button class="btn btn-dark">Logout</button>
+              </form>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <form action="{% url 'login' %}" method = "get">
+                {% csrf_token %}
+                <button class="btn btn-dark">Login</button>
+              </form>
+            </li>
+            <li class="nav-item">
+              <form action="{% url 'signup' %}" method = "get">
+                {% csrf_token %}
+                <button class="btn btn-dark">Signup</button>
+              </form>           
+            </li>
+            {% endif %}
+            {% if request.path != "/blog/"  %}
+            <li class="nav-item">
+              <form action="{% url 'blog' %}" method = "get">
+                {% csrf_token %}
+                <button class="btn btn-dark">Blog</button>
+              </form>           
+            </li>
+            {% endif %}
+            {% if user.is_superuser%}
+            {% if request.path != "/blog/make_catalog_obj_view/"%}
+            <li class="nav-item">
+              <form action="{% url 'make_catalog_obj_view' %}" method = "get">
+                {% csrf_token %}
+                <button class="btn btn-dark">Add new catalog item</button>
+              </form>           
+            </li>
+            {% endif %}
+            {% if request.path != "/blog/case_list/"  %}
+            <li class="nav-item">
+              <form action="{% url 'case_list' %}" method = "get">
+                {% csrf_token %}
+                <button class="btn btn-dark">Cases list</button>
+              </form>           
+            </li>
+            {% endif %}
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</head>
+<body  class="custom-bg-color-base">
+  
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+ </body>
+
+</html>

@@ -3,7 +3,11 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      bash -c "python ./WoodWoorldStroy/manage.py makemigrations
+      && python ./WoodWoorldStroy/manage.py migrate
+      && exec python ./WoodWoorldStroy/manage.py runserver 0.0.0.0:8000"
+
     volumes:
       - .:/app
     ports:

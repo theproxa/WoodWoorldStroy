@@ -6,7 +6,8 @@ services:
     command: >
       bash -c "python ./WoodWoorldStroy/manage.py makemigrations
       && python ./WoodWoorldStroy/manage.py migrate
-      && exec python ./WoodWoorldStroy/manage.py runserver 0.0.0.0:8000"
+      && cd WoodWoorldStroy
+      && exec gunicorn WoodWoorldStroy.wsgi:application --bind 0.0.0.0:8000"
 
     volumes:
       - .:/app
@@ -28,6 +29,16 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./WoodWoorldStroy/static:/app/static  # Статика Django
+      - ./WoodWoorldStroy/media:/app/media    # Медиафайлы Django
+    depends_on:
+      - web
 
 volumes:
   postgres_data:
